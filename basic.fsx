@@ -9,9 +9,7 @@ type Result = {
     result: int
 }
 
-open Newtonsoft
 open Newtonsoft.Json
-open Newtonsoft.Json.Linq
 let fromJson1<'T> bytes =
     UTF8.toString bytes |> JsonConvert.DeserializeObject<'T>
 
