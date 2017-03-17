@@ -10,15 +10,12 @@ type Result = {
 }
 
 open Newtonsoft.Json
-let fromJson1<'T> bytes =
-    UTF8.toString bytes |> JsonConvert.DeserializeObject<'T>
-
-let toJson1 o =
-    JsonConvert.SerializeObject o |> UTF8.bytes
-
 open Suave.Json
 
-let mapJson = mapJsonWith fromJson1 toJson1
+let mapJson = 
+    mapJsonWith 
+        (UTF8.toString >> JsonConvert.DeserializeObject<Operands>) 
+        (JsonConvert.SerializeObject >> UTF8.bytes)
 
 open Suave
 open Suave.Filters
