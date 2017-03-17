@@ -20,3 +20,8 @@ To call api:
 curl --data '{"left":3,"right":4}' http://127.0.0.1:8080/add
 curl --data '{"left":3,"right":4}' http://127.0.0.1:8080/multiple
 ```
+
+To get the swagger io:
+```
+http://localhost:8080/swagger/v2/ui/index.html#!/default/post_add
+```

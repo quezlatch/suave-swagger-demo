@@ -1,22 +1,14 @@
-#load "./paket-files/include-scripts/net46/include.main.group.fsx"
-
-type Operands = {
-    left: int
-    right: int
-}
-
-type Result = {
-    result: int
-}
+#load "./common.fsx"
 
 open Suave
 open Suave.Swagger
 open Rest
 open FunnyDsl
 open Swagger
+open Common
 
-let add = JsonBody<Operands>(fun o -> MODEL {result = o.left + o.right })
-let multiply = JsonBody<Operands>(fun o -> MODEL {result = o.left * o.right })
+let add = JsonBody<Operands>(operandAction (+) >> MODEL)
+let multiply = JsonBody<Operands>(operandAction (*) >> MODEL)
 
 let api = 
   swagger {

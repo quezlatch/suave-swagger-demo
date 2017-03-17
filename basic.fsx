@@ -1,16 +1,8 @@
-#load "./paket-files/include-scripts/net46/include.main.group.fsx"
-
-type Operands = {
-    left: int
-    right: int
-}
-
-type Result = {
-    result: int
-}
+#load "./common.fsx"
 
 open Newtonsoft.Json
 open Suave.Json
+open Common
 
 let mapJson = 
     mapJsonWith 
@@ -24,8 +16,8 @@ open Suave.Operators
 let app =
     choose [
         POST >=> choose [
-            path "/add" >=> mapJson (fun o -> { result = o.left + o.right })
-            path "/multiply" >=> mapJson (fun o -> { result = o.left * o.right })
+            path "/add" >=> mapJson (operandAction (+))
+            path "/multiply" >=> mapJson (operandAction (*))
         ]
     ]
 
