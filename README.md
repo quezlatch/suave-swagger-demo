@@ -15,7 +15,7 @@ fsharpi basic.fsx
 
 with swagger:
 ``` bash
-fsharpi basic.fsx
+fsharpi swagger.fsx
 ```
 
 To call api:
