@@ -6,7 +6,7 @@ To build:
 ``` bash
 mono ./.paket/paket.bootstrapper.exe
 mono .paket/paket.exe restore
-mono .paket/paket.exe generate-include-scripts
+mono .paket/paket.exe generate-load-scripts
 ```
 
 To run basic api:
