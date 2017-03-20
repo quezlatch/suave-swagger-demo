@@ -9,6 +9,4 @@ type Result = {
     result: int
 }
 
-let operandAction f =
-  let f' o = {result = f o.left o.right }
-  f'
+let operandAction f o = {result = f o.left o.right }
